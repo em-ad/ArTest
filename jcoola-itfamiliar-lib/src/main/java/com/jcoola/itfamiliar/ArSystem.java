@@ -49,7 +49,7 @@ public class ArSystem {
     }
 
     // 1: not first time , else: first time
-    public static void saveToDevicePref_FirstTimeRunStat(Context ctx, int firstTimeRunStat) {
+    public static void saveFirstTimeRun(Context ctx, int firstTimeRunStat) {
         String key = ctx.getResources().getString(R.string.ar_pref_firsttimerunstat);
         SharedPreferences sharedPref = ctx.getSharedPreferences(
                 key, Context.MODE_PRIVATE);

@@ -11,6 +11,7 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -24,6 +25,9 @@ public class ArActivitySplash extends AppCompatActivity {
 
     private TextView textMessage;
     private TextView textCode;
+    private AlertDialog dialog = null;
+
+    boolean isUnityLoaded = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,7 +35,6 @@ public class ArActivitySplash extends AppCompatActivity {
         setContentView(R.layout.ar_activity_splash);
         checkArAvailability();
         initViews();
-        consumerFullClassName = getClass().getName();
         handleIntent(getIntent());
     }
 
@@ -42,11 +45,6 @@ public class ArActivitySplash extends AppCompatActivity {
         textMessage.setText(getApplicationContext().getResources().getString(R.string.ar_init_text));
         textCode.setText("");
     }
-
-    boolean isUnityLoaded = false;
-
-    String consumerFullClassName;
-
 
     @Override
     protected void onNewIntent(Intent intent) {
@@ -74,7 +72,7 @@ public class ArActivitySplash extends AppCompatActivity {
     public void loadUnity() {
         isUnityLoaded = true;
         Intent intent = new Intent(ArActivitySplash.this, UnityActivityContainer.class);
-        intent.putExtra("consumer", consumerFullClassName);
+        intent.putExtra("consumer", getClass().getName());
         intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
 
         startActivityForResult(intent, 1);
@@ -112,7 +110,7 @@ public class ArActivitySplash extends AppCompatActivity {
             checkArAvailability();
 
             if (ArSystem.isFirstTimeRun(getApplicationContext()) && !isPackageInstalled("com.google.ar.core", getPackageManager())) {
-                ArSystem.saveToDevicePref_FirstTimeRunStat(getApplicationContext(), 1);
+                ArSystem.saveFirstTimeRun(getApplicationContext(), 1);
 
                 textMessage.setText(getApplicationContext().getResources().getString(R.string.ar_installgpsar_text));
                 textCode.setText("");
@@ -165,11 +163,9 @@ public class ArActivitySplash extends AppCompatActivity {
         }
     }
 
-    AlertDialog dialog = null;
-
     private void installGooglePlayServicesForAR() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this, R.style.myAlert);
-        dialog = builder.setCancelable(true)
+        dialog = builder.setCancelable(false)
                 .setIcon(getResources().getDrawable(android.R.drawable.ic_dialog_alert))
                 .setPositiveButton("نصب از فروشگاه", new DialogInterface.OnClickListener() {
                     @Override
