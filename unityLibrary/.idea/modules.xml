@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-76915107/ArIntegrationTest.iml" filepath="$PROJECT_DIR$/.idea/modules/-76915107/ArIntegrationTest.iml" group="ArIntegrationTest" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/1749073775/app.iml" filepath="$PROJECT_DIR$/.idea/modules/1749073775/app.iml" group="ArIntegrationTest/app" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-2012937794/jcoola-ar-unity-binding.iml" filepath="$PROJECT_DIR$/.idea/modules/-2012937794/jcoola-ar-unity-binding.iml" group="ArIntegrationTest/jcoola-ar-unity-binding" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-1027865259/jcoola-itfamiliar-lib.iml" filepath="$PROJECT_DIR$/.idea/modules/-1027865259/jcoola-itfamiliar-lib.iml" group="ArIntegrationTest/jcoola-itfamiliar-lib" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/unityLibrary.iml" filepath="$PROJECT_DIR$/.idea/modules/unityLibrary.iml" group="ArIntegrationTest/unityLibrary" />
+    </modules>
+  </component>
+</project>

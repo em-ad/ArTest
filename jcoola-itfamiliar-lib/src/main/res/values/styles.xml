@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="myAlert" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <item name="fontFamily">@font/app_font</item>
+        <item name="android:background">#232323</item>
+        <item name="android:textColor">#c9c9c9</item>
+        <item name="android:textColorPrimary">#c9c9c9</item>
+    </style>
+
+</resources>

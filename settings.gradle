@@ -1,0 +1,5 @@
+include ':jcoola-ar-unity-binding'
+include ':jcoola-itfamiliar-lib'
+include ':unityLibrary'
+include ':app'
+rootProject.name = "ArIntegrationTest"
